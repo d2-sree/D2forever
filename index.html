@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D2 FOREVER</title>
+  <meta name="description"
+    content="A surprise romantic anniversary celebration for Dinesh. 3 years, thousands of memories, one love." />
+
+  <!-- Google Fonts: Elegant, Cinematic & Romantic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;700&family=Great+Vibes&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+  <!-- =================================================================
+       HEART PAPER BACKGROUND + ANIMATED FLOATING HEARTS OVERLAY
+       ================================================================= -->
+  <!-- CSS animated floating hearts that drift upward (matching image theme) -->
+  <div class="floating-hearts-overlay" id="floating-hearts-overlay" aria-hidden="true"></div>
+
+
+  <!-- =================================================================
+       FLOATING AUDIO PLAYER (Soft Background Music)
+       - Does NOT autoplay (user can tap to play/pause anytime)
+       - Clearly labeled with vinyl animation & soundwave bars
+       ================================================================= -->
+  <div class="audio-widget-container" id="audio-widget" title="Click to play or pause our background music">
+    <button class="audio-toggle-btn" id="audio-btn" aria-label="Toggle background music">
+      <div class="vinyl-disc" id="vinyl-disc">
+        <div class="vinyl-inner"></div>
+        <span class="vinyl-heart">❤️</span>
+      </div>
+      <div class="audio-info">
+        <span class="audio-label">SOUNDTRACK</span>
+        <span class="audio-title" id="audio-status-text">Play Our Song</span>
+      </div>
+      <div class="sound-wave" id="sound-wave">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- 🎵 MUSIC FILE: Replace 'assets/audio/romantic_melody.wav' with your own song (e.g. 'music.mp3') if you like! -->
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="assets/audio/romantic_melody.wav" type="audio/wav" />
+    <source src="assets/audio/romantic_melody.mp3" type="audio/mpeg" />
+  </audio>
+
+
+  <!-- =================================================================
+       OPENING SCREEN / GATE (Netflix-Style Cinematic Intro)
+       "Oii Pappu ❤️"
+       "Before you continue... I have something to show you."
+       "Do you remember October 23, 2023?"
+       Button: "YES, I REMEMBER ❤️"
+       ================================================================= -->
+  <div id="intro-screen" class="intro-overlay">
+    <!-- Cinematic letterbox bars -->
+    <div class="cinematic-bar bar-top"></div>
+
+    <div class="intro-card">
+      <div class="intro-badge">
+        <span class="pulse-dot"></span>
+        <span>A SPECIAL PRELUDE • 25:22</span>
+      </div>
+
+      <!-- ✏️ EDIT TEXT HERE if you want to customize the greeting -->
+      <h1 class="intro-greeting">
+        Oii Pappuu <span class="heart-pulse">❤️</span>
+      </h1>
+
+      <p class="intro-subtext">
+        Before you continue... I have something to show you.
+      </p>
+
+      <div class="intro-question-box">
+        <div class="date-glow-tag">October 23, 2023</div>
+        <p class="intro-question">Do you remember this day?</p>
+      </div>
+
+      <button id="enter-btn" class="netflix-btn primary-btn">
+        <span class="btn-text">YES, I REMEMBER ❤️</span>
+        <span class="btn-shine"></span>
+      </button>
+
+      <p class="intro-hint">Put your headphones on for the best experience ✨</p>
+    </div>
+
+    <div class="cinematic-bar bar-bottom"></div>
+  </div>
+
+
+  <!-- =================================================================
+       MAIN WEBSITE CONTENT (Revealed after clicking "YES, I REMEMBER ❤️")
+       ================================================================= -->
+  <div id="main-content" class="main-wrapper is-locked">
+
+    <!-- Top Cinematic Navbar -->
+    <header class="site-header" id="site-header">
+      <div class="nav-container">
+        <div class="brand-logo">
+          <span class="logo-accent">25:22</span>
+          <span class="logo-divider">|</span>
+          <span class="logo-sub">OUR STORY</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#beginning" class="nav-link">The Beginning</a>
+          <a href="#memories" class="nav-link">Memories</a>
+          <a href="#quiz" class="nav-link">The Quiz</a>
+          <a href="#love-letter" class="nav-link">A Letter For You</a>
+          <a href="#time-capsule" class="nav-link">Time Capsule</a>
+          <a href="#next-chapter" class="nav-link">Next Chapter</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION (Netflix Series Premiere Style) -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-overlay"></div>
+      <div class="container hero-content">
+
+        <div class="netflix-series-badge">
+          <span class="series-tag">A LOVE STORY OF HEART WHICH MET RANDOMLY </span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-time">25:22</span>
+          <span class="title-quote">— Our Story</span>
+        </h1>
+
+        <div class="hero-meta-tags">
+          <span class="meta-tag rating">100% MATCH</span>
+          <span class="meta-tag year">SOULMATE FOREVER</span>
+          <span class="meta-tag quality">4K ULTRA ROMANCE</span>
+          <span class="meta-tag episodes">INFINITE LOVE </span>
+        </div>
+
+        <p class="hero-tagline">
+          A BEATUTIFUL FRIENDSHIP TURNED INTO ENDLESS LOVE , WE FIGHT , WE CARE , WE LOVE , WE FIX .
+        </p>
+
+        <!-- Live Milestones Counter Bar -->
+        <div class="live-counter-bar">
+          <div class="counter-item">
+            <span class="counter-val" id="days-count">1096+</span>
+            <span class="counter-label">Days of Us</span>
+          </div>
+          <div class="counter-divider"></div>
+          <div class="counter-item">
+            <span class="counter-val">Thousands</span>
+            <span class="counter-label">Shared Smiles</span>
+          </div>
+          <div class="counter-divider"></div>
+          <div class="counter-item">
+            <span class="counter-val">Countless</span>
+            <span class="counter-label">Sweet Fights</span>
+          </div>
+          <div class="counter-divider"></div>
+          <div class="counter-item">
+            <span class="counter-val">Only 1</span>
+            <span class="counter-label">Forever Love</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#beginning" class="netflix-btn hero-btn">
+            <span class="play-icon">▶</span>
+            <span>Watch Our Story</span>
+          </a>
+          <a href="#love-letter" class="ghost-btn">
+            <span>💌 Read Your Letter</span>
+          </a>
+        </div>
+
+        <div class="scroll-indicator">
+          <span>Scroll to begin Episode 1</span>
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================
+         SECTION 1: THE BEGINNING
+         - First year of college at a Xerox shop
+         - Friends to best friends
+         - Dinesh proposes on October 23, 2023
+         ================================================================= -->
+    <section class="story-section section-padding" id="beginning">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-episode">EPISODE 01</span>
+          <h2 class="section-title">The Beginning</h2>
+          <div class="title-underline"></div>
+          <p class="section-description">
+            How destiny rewrote ordinary days into the greatest adventure of our lives.
+          </p>
+        </div>
+
+        <div class="beginning-grid">
+
+          <!-- Card 1: Our First Meet -->
+          <div class="cinematic-card beginning-card">
+            <div class="card-glow"></div>
+            <div class="card-badge">ACT I • LOVE ON FIRST SIGHT </div>
+            <div class="card-icon-header">
+              <span class="memory-emoji">📄</span>
+              <span class="memory-timeframe">First Year of College</span>
+            </div>
+            <h3 class="card-heading">IT STARTS AT Xerox Shop</h3>
+            <p class="card-text">
+              It was a mid noon we both are came o the college without chemistry observation note , sir said us to buy a
+              new note and come to the class , its was the first meet of d2 , where the hole sory begins . he got the
+              note which contain my fav elephant image , so i asked too him "ENNAKU ADHA NOTE VARIYA ?"
+              but now only i understand he didn't give a note , he give his hole life to me . we exchaneg our instagram
+              ID .I thought that he is commited . after some days passed he start texting me int he instagram, slow a
+              comfrotable friendship is build .</p>
+            <div class="card-footer-quote">
+              "The most ordinary place held the start of our extraordinary story."
+            </div>
+          </div>
+
+          <!-- Card 2: Friends to Best Friends -->
+          <div class="cinematic-card beginning-card">
+            <div class="card-glow"></div>
+            <div class="card-badge">ACT II •OUR FRIENDSHIP GROWS </div>
+            <div class="card-icon-header">
+              <span class="memory-emoji">✨</span>
+              <span class="memory-timeframe">College Days & Corridors</span>
+            </div>
+            <h3 class="card-heading">Friends to Best Friends</h3>
+            <p class="card-text">
+              A simple hello turned into hours of walking down college corridors, sharing lunches, lending pens, and
+              laughing until our stomachs hurt. You slowly became the person I looked for in every crowded room, the
+              first one I texted with good news, and the safe corner where I could be 100% myself.
+            </p>
+            <div class="card-footer-quote">
+              "Somewhere between silly jokes and late talks, you became my favorite human."
+            </div>
+          </div>
+
+          <!-- Card 3: The Proposal -->
+          <div class="cinematic-card beginning-card highlight-card">
+            <div class="card-glow"></div>
+            <div class="card-badge gold-badge">ACT III • OUR FRIENDSHIP TURNED INTO LOVE</div>
+            <div class="card-icon-header">
+              <span class="memory-emoji">💍</span>
+              <span class="memory-timeframe date-highlight">October 23, 2023</span>
+            </div>
+            <h3 class="card-heading">The Day You Proposed</h3>
+            <p class="card-text">
+              The date that changed our lives forever. When you looked straight into my eyes and poured your heart
+              out,
+              the whole world faded into quiet. Every hesitation dissolved into pure certainty. That was the day I
+              said
+              yes to you, to us, and to every tomorrow we will ever share.
+            </p>
+            <div class="card-footer-quote highlight-quote">
+              "October 23, 2023 — the day two best friends chose forever."
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =================================================================
+         SECTION 2: OUR MEMORIES
+         - Interactive Relationship Timeline
+         - Photo Gallery (Polaroid style with easy placeholder replacements)
+         - Lightbox modal
+         ================================================================= -->
+    <section class="story-section section-padding alt-bg" id="memories">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-episode">EPISODE 02</span>
+          <h2 class="section-title">Our Memories</h2>
+          <div class="title-underline"></div>
+          <p class="section-description">
+            A visual timeline of milestones and captured frames of our 3-year journey.
+          </p>
+        </div>
+
+        <!-- Section Switcher: Timeline vs Film Strip vs Heart Collage -->
+        <div class="memory-tabs">
+          <button class="tab-btn active" data-tab="filmstrip">
+            <span>🎞️ 35mm Film Strip <span class="tab-pill-new">NEW</span></span>
+          </button>
+          <button class="tab-btn" data-tab="timeline">
+            <span>📅 Relationship Timeline</span>
+          </button>
+          <button class="tab-btn" data-tab="gallery">
+            <span>💝 Heart Collage</span>
+          </button>
+        </div>
+
+        <!-- TAB: VINTAGE 35MM FILM STRIP & SCRAPBOOK PHOTO BOOTH -->
+        <div class="tab-content active" id="tab-filmstrip">
+          <div class="filmstrip-section-wrapper">
+
+            <div class="filmstrip-banner">
+              <div class="filmstrip-tag">ANALOG MEMORY ARCHIVE • 35MM RETRO</div>
+              <h3 class="filmstrip-heading">Our Vintage Film Strip 📸</h3>
+              <p class="filmstrip-subheading">
+                Tap any frame slot below to choose and upload your favorite photo directly from your phone or device!
+              </p>
+              <div class="filmstrip-toolbar">
+                <button class="film-btn primary" id="film-download-btn">
+                  <span>📥 Download Film Strip</span>
+                </button>
+                <button class="film-btn secondary" id="film-reset-btn">
+                  <span>🔄 Clear Frames</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Scrapbook Board (Matching the uploaded aesthetic collage) -->
+            <div class="scrapbook-board">
+
+              <!-- Left Column: Vintage Scrapbook Cards & Cute Stickers -->
+              <div class="scrapbook-left-deck">
+
+                <!-- Scrapbook Card 1 (Top Polaroid) -->
+                <div class="scrapbook-item polaroid-card p-tilt-left" data-scrap-slot="s1">
+                  <div class="washi-tape tape-angle"></div>
+                  <div class="card-sticker sticker-totoro" title="My Neighbor Totoro">🍃</div>
+                  <div class="card-sticker sticker-cinnamon" title="Cinnamoroll">☁️</div>
+                  <div class="scrapbook-photo-slot">
+                    <div class="scrapbook-placeholder">
+                      <span class="scrap-icon">📷</span>
+                      <span class="scrap-label">Add Memory</span>
+                    </div>
+                  </div>
+                  <div class="card-sticker sticker-bow" title="Ribbon">🎀</div>
+                  <span class="scrapbook-caption">The Day Everything Changed ✨</span>
+                </div>
+
+                <!-- Vintage Postcard Ticket -->
+                <div class="scrapbook-item postcard-tag">
+                  <div class="postcard-stamp">
+                    <span class="stamp-date">23 • 10</span>
+                    <span class="stamp-heart">💌</span>
+                  </div>
+                  <div class="postcard-inner">
+                    <span class="postcard-header">POST CARD</span>
+                    <p class="postcard-quote">"Memories come in waves..."</p>
+                    <span class="postcard-sub">Dinesh &amp; Dhanushree</span>
+                  </div>
+                </div>
+
+                <!-- Scrapbook Card 2 (Middle Polaroid) -->
+                <div class="scrapbook-item polaroid-card p-tilt-right" data-scrap-slot="s2">
+                  <div class="card-sticker sticker-cat" title="Cat">🐾</div>
+                  <div class="card-sticker sticker-fan" title="Fan">🪭</div>
+                  <div class="scrapbook-photo-slot">
+                    <div class="scrapbook-placeholder">
+                      <span class="scrap-icon">📷</span>
+                      <span class="scrap-label">Add Memory</span>
+                    </div>
+                  </div>
+                  <span class="scrapbook-caption">Every Train Ride With You 🚆</span>
+                </div>
+
+                <!-- Bottom Mini Scrapbook Cards -->
+                <div class="scrapbook-mini-grid">
+                  <div class="scrapbook-item polaroid-card mini-card" data-scrap-slot="s3">
+                    <div class="card-sticker sticker-star" title="Chrome Star">⭐</div>
+                    <div class="card-sticker sticker-clover" title="Lucky Clover">🍀</div>
+                    <div class="scrapbook-photo-slot">
+                      <div class="scrapbook-placeholder">
+                        <span class="scrap-icon">📷</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="scrapbook-item polaroid-card mini-card" data-scrap-slot="s4">
+                    <div class="card-sticker sticker-frogs" title="Frog Plushies">🐸</div>
+                    <div class="scrapbook-photo-slot">
+                      <div class="scrapbook-placeholder">
+                        <span class="scrap-icon">📷</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right Column: The 35mm Film Strip -->
+              <div class="scrapbook-film-column">
+
+                <!-- Retro Digicam at Top -->
+                <div class="retro-digicam-mount">
+                  <div class="digicam-body">
+                    <div class="digicam-top-strip">
+                      <span class="digicam-brand">Canon</span>
+                      <div class="digicam-shutter-btn"></div>
+                    </div>
+                    <div class="digicam-front-panel">
+                      <div class="digicam-lens-housing">
+                        <div class="digicam-lens-glass">
+                          <div class="digicam-lens-glare"></div>
+                        </div>
+                      </div>
+                      <div class="digicam-screen">
+                        <div class="rec-indicator">
+                          <span class="rec-bullet"></span>
+                          <span>REC</span>
+                        </div>
+                        <div class="screen-timestamp">23:10:26</div>
+                        <div class="screen-viewfinder"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- THE 35MM FILM ROLL -->
+                <div class="filmstrip-roll-container" id="filmstrip-export-container">
+
+                  <!-- Film Header -->
+                  <div class="film-header-strip">
+                    <div class="film-kodak-mark">
+                      <span>▶ 23:10 FILM</span>
+                      <span>• ISO 400 •</span>
+                      <span>KODAK ULTRAMAX</span>
+                    </div>
+                  </div>
+
+                  <!-- Sprocket Tracks + 4 Film Frames -->
+                  <div class="film-track-wrapper">
+
+                    <!-- Left Sprockets -->
+                    <div class="film-sprockets-left" aria-hidden="true"></div>
+
+                    <!-- Frames Center -->
+                    <div class="film-frames-track">
+
+                      <!-- Frame 1 -->
+                      <div class="film-frame-unit" data-film-index="1">
+                        <div class="film-edge-mark">
+                          <span class="edge-text">2A</span>
+                          <span class="edge-arrow">▶</span>
+                        </div>
+                        <div class="film-window">
+                          <div class="film-torn-edge"></div>
+                          <div class="film-empty-state">
+                            <span class="film-empty-icon">📷</span>
+                            <span class="film-empty-title">Frame 01 • Click to Add</span>
+                            <span class="film-empty-subtitle">The Xerox Shop Spark</span>
+                          </div>
+                          <div class="film-image-container"></div>
+                          <div class="film-frame-controls">
+                            <button class="frame-ctrl-btn btn-view" title="View Full">🔍</button>
+                            <button class="frame-ctrl-btn btn-change" title="Change Photo">🔄</button>
+                            <button class="frame-ctrl-btn btn-remove" title="Remove Photo">🗑️</button>
+                          </div>
+                        </div>
+                        <div class="film-caption-input" contenteditable="true" spellcheck="false" data-caption-id="1">
+                          Where It All Began 📄
+                        </div>
+                      </div>
+
+                      <!-- Frame 2 -->
+                      <div class="film-frame-unit" data-film-index="2">
+                        <div class="film-edge-mark">
+                          <span class="edge-text">3</span>
+                          <span class="edge-arrow">▶</span>
+                        </div>
+                        <div class="film-window">
+                          <div class="film-torn-edge"></div>
+                          <div class="film-empty-state">
+                            <span class="film-empty-icon">📷</span>
+                            <span class="film-empty-title">Frame 02 • Click to Add</span>
+                            <span class="film-empty-subtitle">The Proposal Day</span>
+                          </div>
+                          <div class="film-image-container"></div>
+                          <div class="film-frame-controls">
+                            <button class="frame-ctrl-btn btn-view" title="View Full">🔍</button>
+                            <button class="frame-ctrl-btn btn-change" title="Change Photo">🔄</button>
+                            <button class="frame-ctrl-btn btn-remove" title="Remove Photo">🗑️</button>
+                          </div>
+                        </div>
+                        <div class="film-caption-input" contenteditable="true" spellcheck="false" data-caption-id="2">
+                          October 23, 2023 Proposal 💍
+                        </div>
+                      </div>
+
+                      <!-- Frame 3 -->
+                      <div class="film-frame-unit" data-film-index="3">
+                        <div class="film-edge-mark">
+                          <span class="edge-text">3A</span>
+                          <span class="edge-arrow">▶</span>
+                        </div>
+                        <div class="film-window">
+                          <div class="film-torn-edge"></div>
+                          <div class="film-empty-state">
+                            <span class="film-empty-icon">📷</span>
+                            <span class="film-empty-title">Frame 03 • Click to Add</span>
+                            <span class="film-empty-subtitle">Train Rides &amp; Dates</span>
+                          </div>
+                          <div class="film-image-container"></div>
+                          <div class="film-frame-controls">
+                            <button class="frame-ctrl-btn btn-view" title="View Full">🔍</button>
+                            <button class="frame-ctrl-btn btn-change" title="Change Photo">🔄</button>
+                            <button class="frame-ctrl-btn btn-remove" title="Remove Photo">🗑️</button>
+                          </div>
+                        </div>
+                        <div class="film-caption-input" contenteditable="true" spellcheck="false" data-caption-id="3">
+                          Thiruthani Temple &amp; Avadi Benches 🚆
+                        </div>
+                      </div>
+
+                      <!-- Frame 4 -->
+                      <div class="film-frame-unit" data-film-index="4">
+                        <div class="film-edge-mark">
+                          <span class="edge-text">4</span>
+                          <span class="edge-arrow">▶</span>
+                        </div>
+                        <div class="film-window">
+                          <div class="film-torn-edge"></div>
+                          <div class="film-empty-state">
+                            <span class="film-empty-icon">📷</span>
+                            <span class="film-empty-title">Frame 04 • Click to Add</span>
+                            <span class="film-empty-subtitle">Our Forever Chapter</span>
+                          </div>
+                          <div class="film-image-container"></div>
+                          <div class="film-frame-controls">
+                            <button class="frame-ctrl-btn btn-view" title="View Full">🔍</button>
+                            <button class="frame-ctrl-btn btn-change" title="Change Photo">🔄</button>
+                            <button class="frame-ctrl-btn btn-remove" title="Remove Photo">🗑️</button>
+                          </div>
+                        </div>
+                        <div class="film-caption-input" contenteditable="true" spellcheck="false" data-caption-id="4">
+                          Forever &amp; Always, Dinesh ❤️
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- Right Sprockets -->
+                    <div class="film-sprockets-right" aria-hidden="true"></div>
+
+                  </div>
+
+                  <!-- Film Footer -->
+                  <div class="film-footer-strip">
+                    <div class="film-kodak-mark">
+                      <span>● SAFETY FILM</span>
+                      <span>• 23.10.2026 •</span>
+                      <span>DHANUSHREE &amp; DINESH ♾️</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Hidden file inputs -->
+            <input type="file" id="filmstrip-file-input" accept="image/*" style="display:none;" />
+            <input type="file" id="scrapbook-file-input" accept="image/*" style="display:none;" />
+
+          </div>
+        </div>
+
+        <!-- TAB 1: RELATIONSHIP TIMELINE -->
+        <div class="tab-content" id="tab-timeline">
+          <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <!-- Milestone 1 -->
+            <div class="timeline-item left">
+              <div class="timeline-dot"><span>📄</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023 • College Year 1</span>
+                <h3 class="timeline-title">The Xerox Shop Spark</h3>
+                <p>An ordinary college errand turned into the start of everything. Waiting in line at the xerox shop,
+                  catching your eye, and sharing that very first shy conversation.</p>
+              </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="timeline-item right">
+              <div class="timeline-dot"><span>🤝</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Mid 2023</span>
+                <h3 class="timeline-title">From Friends to Best Friends</h3>
+                <p>Sharing college notes, sitting together during lunch breaks, and walking through the corridors. You
+                  quickly became the most dependable part of my day.</p>
+              </div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="timeline-item left highlight-milestone">
+              <div class="timeline-dot gold-dot"><span>💍</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date gold-text">October 23, 2023</span>
+                <h3 class="timeline-title">Dinesh Proposed ❤️</h3>
+                <p>The day you asked me to be yours. A moment etched into eternity. My heart said yes before my lips
+                  could even speak. The beginning of our official forever.</p>
+              </div>
+            </div>
+
+            <!-- Milestone 4 -->
+            <div class="timeline-item right highlight-milestone">
+              <div class="timeline-dot gold-dot"><span>🛕</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date gold-text">October 31, 2023</span>
+                <h3 class="timeline-title">First Date at Thiruthani Temple</h3>
+                <p>Just eight days after the proposal, our first official date. Climbing the sacred steps of Thiruthani,
+                  praying side-by-side, and seeking Murugan's blessings for our love.</p>
+              </div>
+            </div>
+
+            <!-- Milestone 5 -->
+            <div class="timeline-item left">
+              <div class="timeline-dot"><span>🚆</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023 – 2024</span>
+                <h3 class="timeline-title">Train Rides & Station Evenings</h3>
+                <p>Nemilichery to Avadi local trains. Whispering stories by the window, sitting together at Avadi
+                  railway station benches, and watching twilight fall over Chennai.</p>
+              </div>
+            </div>
+
+            <!-- Milestone 6 -->
+            <div class="timeline-item right">
+              <div class="timeline-dot"><span>🛵</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2024 – 2025</span>
+                <h3 class="timeline-title">Bike Adventures & Fried Rice</h3>
+                <p>Cruising Chennai roads on your bike, laughing in children's parks, walks at Avadi lake park, and
+                  ending our days sharing plates of hot fried rice.</p>
+              </div>
+            </div>
+
+            <!-- Milestone 7 -->
+            <div class="timeline-item left milestone-anniversary">
+              <div class="timeline-dot rainbow-dot"><span>♾️</span></div>
+              <div class="timeline-content">
+                <span class="timeline-date gold-text">October 23, 2026</span>
+                <h3 class="timeline-title">3 Golden Years & Counting</h3>
+                <p>Three years of love, growth, fights, hugs, laughter, and unbreakable devotion. And this is still only
+                  our prologue.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB 2: HEART-SHAPED PHOTO COLLAGE -->
+        <div class="tab-content" id="tab-gallery">
+          <p class="gallery-instructions">
+            💝 <em>Click any heart tile to upload your photo — build our memory heart!</em>
+          </p>
+
+          <!-- Heart Collage Wrapper -->
+          <div class="heart-collage-wrapper">
+            <div class="heart-collage" id="heart-collage">
+
+              <!-- ROW 1 — top two bumps -->
+              <div class="heart-tile" data-slot="0" style="grid-column:2/3; grid-row:1/2;"></div>
+              <div class="heart-tile" data-slot="1" style="grid-column:3/4; grid-row:1/2;"></div>
+              <div class="heart-tile" data-slot="2" style="grid-column:5/6; grid-row:1/2;"></div>
+              <div class="heart-tile" data-slot="3" style="grid-column:6/7; grid-row:1/2;"></div>
+
+              <!-- ROW 2 -->
+              <div class="heart-tile" data-slot="4" style="grid-column:1/2; grid-row:2/3;"></div>
+              <div class="heart-tile" data-slot="5" style="grid-column:2/3; grid-row:2/3;"></div>
+              <div class="heart-tile" data-slot="6" style="grid-column:3/4; grid-row:2/3;"></div>
+              <div class="heart-tile" data-slot="7" style="grid-column:4/5; grid-row:2/3;"></div>
+              <div class="heart-tile" data-slot="8" style="grid-column:5/6; grid-row:2/3;"></div>
+              <div class="heart-tile" data-slot="9" style="grid-column:6/7; grid-row:2/3;"></div>
+              <div class="heart-tile" data-slot="10" style="grid-column:7/8; grid-row:2/3;"></div>
+
+              <!-- ROW 3 -->
+              <div class="heart-tile" data-slot="11" style="grid-column:1/2; grid-row:3/4;"></div>
+              <div class="heart-tile" data-slot="12" style="grid-column:2/3; grid-row:3/4;"></div>
+              <div class="heart-tile" data-slot="13" style="grid-column:3/4; grid-row:3/4;"></div>
+              <div class="heart-tile" data-slot="14" style="grid-column:4/5; grid-row:3/4;"></div>
+              <div class="heart-tile" data-slot="15" style="grid-column:5/6; grid-row:3/4;"></div>
+              <div class="heart-tile" data-slot="16" style="grid-column:6/7; grid-row:3/4;"></div>
+              <div class="heart-tile" data-slot="17" style="grid-column:7/8; grid-row:3/4;"></div>
+
+              <!-- ROW 4 -->
+              <div class="heart-tile" data-slot="18" style="grid-column:1/2; grid-row:4/5;"></div>
+              <div class="heart-tile" data-slot="19" style="grid-column:2/3; grid-row:4/5;"></div>
+              <div class="heart-tile" data-slot="20" style="grid-column:3/4; grid-row:4/5;"></div>
+              <div class="heart-tile" data-slot="21" style="grid-column:4/5; grid-row:4/5;"></div>
+              <div class="heart-tile" data-slot="22" style="grid-column:5/6; grid-row:4/5;"></div>
+              <div class="heart-tile" data-slot="23" style="grid-column:6/7; grid-row:4/5;"></div>
+              <div class="heart-tile" data-slot="24" style="grid-column:7/8; grid-row:4/5;"></div>
+
+              <!-- ROW 5 -->
+              <div class="heart-tile" data-slot="25" style="grid-column:2/3; grid-row:5/6;"></div>
+              <div class="heart-tile" data-slot="26" style="grid-column:3/4; grid-row:5/6;"></div>
+              <div class="heart-tile" data-slot="27" style="grid-column:4/5; grid-row:5/6;"></div>
+              <div class="heart-tile" data-slot="28" style="grid-column:5/6; grid-row:5/6;"></div>
+              <div class="heart-tile" data-slot="29" style="grid-column:6/7; grid-row:5/6;"></div>
+
+              <!-- ROW 6 -->
+              <div class="heart-tile" data-slot="30" style="grid-column:3/4; grid-row:6/7;"></div>
+              <div class="heart-tile" data-slot="31" style="grid-column:4/5; grid-row:6/7;"></div>
+              <div class="heart-tile" data-slot="32" style="grid-column:5/6; grid-row:6/7;"></div>
+
+              <!-- ROW 7 — bottom point -->
+              <div class="heart-tile" data-slot="33" style="grid-column:4/5; grid-row:7/8;"></div>
+
+            </div>
+
+            <!-- Hidden file input (reused for all tiles) -->
+            <input type="file" id="heart-photo-input" accept="image/*" style="display:none;" />
+
+            <!-- Progress counter -->
+            <div class="heart-progress">
+              <span id="heart-filled-count">0</span> / 34 memories added ❤️
+            </div>
+          </div>
+
+          <!-- Lightbox for heart tiles -->
+          <div class="heart-lightbox" id="heart-lightbox">
+            <div class="heart-lightbox-inner">
+              <button class="heart-lb-close" id="heart-lb-close">×</button>
+              <img src="" alt="Memory" id="heart-lb-img" />
+              <p class="heart-lb-caption">Our Special Memory ❤️</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================
+         INTERLUDE: THE SOULMATE QUIZ (Option 2)
+         - 4 Interactive Questions about Dinesh & Dhanushree's memories
+         - Instant feedback with story explanations & score tracking
+         - Official Certified #1 Soulmate Certificate upon completion
+         ================================================================= -->
+    <section class="story-section section-padding" id="quiz">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-episode">INTERLUDE • THE SOULMATE TEST</span>
+          <h2 class="section-title">How Well Do You Know Us?</h2>
+          <div class="title-underline"></div>
+          <p class="section-description">
+            Think you remember every special moment of our 3-year journey, Pappuu? Let's test your memory ❤️
+          </p>
+        </div>
+
+        <div class="quiz-container" id="quiz-container">
+
+          <!-- Active Question Card -->
+          <div class="cinematic-card quiz-card" id="quiz-card">
+
+            <div class="quiz-top-bar">
+              <span class="quiz-step-badge" id="quiz-step-badge">Question 1 of 4</span>
+              <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 25%;"></div>
+              </div>
+              <span class="quiz-score-badge">❤️ Score: <span id="quiz-score">0</span> / 4</span>
+            </div>
+
+            <div class="quiz-question-wrap">
+              <span class="quiz-icon" id="quiz-icon">🐘</span>
+              <h3 class="quiz-question-title" id="quiz-question-title">What started our very first conversation at the
+                Xerox shop?</h3>
+            </div>
+
+            <div class="quiz-options-grid" id="quiz-options-grid">
+              <!-- Rendered dynamically by script.js -->
+            </div>
+
+            <div class="quiz-feedback-box" id="quiz-feedback-box" style="display:none;">
+              <div class="feedback-indicator" id="feedback-indicator"></div>
+              <p class="quiz-feedback-text" id="quiz-feedback-text"></p>
+              <button class="netflix-btn primary-btn quiz-next-btn" id="quiz-next-btn">
+                <span>NEXT QUESTION ➔</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Completion Certificate Card (Shown after Q4) -->
+          <div class="cinematic-card quiz-cert-card" id="quiz-cert-card" style="display:none;">
+            <div class="cert-border">
+              <div class="cert-crown">👑</div>
+              <div class="cert-badge">OFFICIAL D2 SEAL OF LOVE</div>
+              <h3 class="cert-title">Certified #1 Soulmate</h3>
+              <p class="cert-subtitle">Awarded with all my heart to</p>
+              <h2 class="cert-name">Pappuu ❤️</h2>
+              <div class="cert-score-box">
+                <span class="cert-score-number" id="cert-final-score">4 / 4</span>
+                <span class="cert-score-text">100% Love Accuracy • Forever My Favorite Human</span>
+              </div>
+
+              <p class="cert-message" id="cert-message">
+                "You remembered every sacred moment of our story. Now take a breath, because I wrote something straight
+                from my soul for you..."
+              </p>
+              <div class="cert-seal">
+                <span>OCTOBER 23, 2023 ➔ FOREVER • 25:22 ♾️</span>
+              </div>
+              <a href="#love-letter" class="netflix-btn primary-btn cert-proceed-btn">
+                <span>💌 READ YOUR LETTER NOW</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================
+         SECTION 3: A LETTER FOR YOU
+         - Animated 3D Envelope with Wax Seal
+         - When clicked, opens and reveals the love letter line by line
+         ================================================================= -->
+    <section class="story-section section-padding" id="love-letter">
+      <div class="container letter-container">
+
+        <div class="section-header">
+          <span class="section-episode">EPISODE 03</span>
+          <h2 class="section-title">A Letter For You</h2>
+          <div class="title-underline"></div>
+          <p class="section-description">
+            Written from the deepest corner of my heart, sealed just for your eyes, Dinesh.
+          </p>
+        </div>
+
+        <!-- 3D INTERACTIVE ENVELOPE -->
+        <div class="envelope-wrapper">
+
+          <div class="envelope-card" id="envelope-box">
+
+            <!-- Envelope Flap (3D Folds Open) -->
+            <div class="envelope-flap" id="envelope-flap"></div>
+
+            <!-- Wax Seal Button -->
+            <div class="wax-seal" id="wax-seal" title="Click to break the seal and open Dinesh's letter">
+              <div class="wax-ring"></div>
+              <div class="wax-stamp">
+                <span class="stamp-initials">23:10</span>
+                <span class="stamp-heart">❤️</span>
+              </div>
+            </div>
+
+            <!-- Envelope Pocket/Front Panels -->
+            <div class="envelope-pocket"></div>
+
+            <!-- Envelope Prompt Message -->
+            <div class="envelope-prompt" id="envelope-prompt">
+              <span class="prompt-icon">💌</span>
+              <span>Tap the wax seal to open Dinesh's letter</span>
+            </div>
+
+          </div>
+
+          <!-- PARCHMENT LOVE LETTER (Revealed smoothly on envelope click) -->
+          <div class="letter-sheet" id="letter-sheet">
+            <div class="parchment-border">
+
+              <div class="letter-stamp-top">
+                <span class="postmark">23.10.2023 ➔ 23.10.2026 • WITH ALL MY LOVE</span>
+              </div>
+
+              <!-- ✏️ EDIT TEXT HERE: You can freely personalize or add your own words to this letter! -->
+              <div class="letter-content">
+                <div class="letter-salutation letter-line">Dearest Dinesh,</div>
+
+                <p class="letter-line">
+                  If someone had told me during our first year of college — as we stood awkwardly in that noisy, crowded
+                  Xerox shop queue — that the boy standing near me would become my whole world, I would have smiled in
+                  disbelief.
+                </p>
+
+                <p class="letter-line">
+                  Yet here we are.
+                </p>
+
+                <p class="letter-line">
+                  From sharing notes and becoming friends, to the comfort of becoming each other’s best friend, you
+                  slowly slipped into every fiber of my routine. And then came <strong>October 23, 2023</strong> — the
+                  day you took my hands and asked me to walk beside you. Saying yes to you was the easiest, truest
+                  decision my heart has ever made.
+                </p>
+
+                <p class="letter-line">
+                  Do you remember October 31, 2023? Our very first date at Thiruthani temple, climbing those stone steps
+                  together with prayer in our hearts? That sacred hill witnessed our promises, and every train ride from
+                  Nemilichery to Avadi since then has felt like home because you were sitting beside me.
+                </p>
+
+                <p class="letter-line">
+                  I love the evenings we waited on Avadi station benches, refusing to let the hours end. I love holding
+                  onto you tightly on your Splendor bike, feeling safe against the rush of Chennai traffic. I love our
+                  silly walks at Avadi lake park, laughing like children on park swings, and how a simple plate of fried
+                  rice with you always felt like the grandest feast on earth.
+                </p>
+
+                <p class="letter-line">
+                  We’ve had our share of misunderstandings, little arguments, and countless fights. But in every storm,
+                  we held tighter. You are my safe harbor, my favorite laughter, my greatest supporter, and my deepest
+                  love.
+                </p>
+
+                <p class="letter-line">
+                  Thank you for three magical, unforgettable years. Through every tomorrow, every twist of fate, and
+                  every chapter yet unwritten... I would still choose you. Every single time.
+                </p>
+
+                <div class="letter-signoff letter-line">
+                  <span>Forever & always yours,</span>
+                  <span class="handwritten-signature">With all my love ❤️</span>
+                </div>
+              </div>
+
+              <div class="letter-actions">
+                <button class="small-btn" id="close-letter-btn">
+                  <span>Fold Letter & Close Envelope</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================
+         EPISODE 04: OUR 2030 TIME CAPSULE (Option 6)
+         - Locked Digital Vault with glowing golden padlock
+         - Interactive unsealing animation
+         - 4 Sacred Promises / Vows for Dinesh & Dhanushree's future
+         - Interactive "I Accept & Promise Too" digital vow seal
+         ================================================================= -->
+    <section class="story-section section-padding alt-bg" id="time-capsule">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-episode">EPISODE 04</span>
+          <h2 class="section-title">Our 2030 Time Capsule</h2>
+          <div class="title-underline"></div>
+          <p class="section-description">
+            A digital vault of sacred promises sealed for our future together. Unseal only with an open heart 🗝️
+          </p>
+        </div>
+
+        <div class="capsule-wrapper" id="capsule-wrapper">
+
+          <!-- Locked State Card -->
+          <div class="cinematic-card capsule-locked-card" id="capsule-locked-card">
+            <div class="vault-glow"></div>
+
+            <div class="capsule-padlock-wrap" id="capsule-padlock-trigger" title="Click to unlock the time capsule">
+              <div class="padlock-shackle" id="padlock-shackle"></div>
+              <div class="padlock-body">
+                <div class="padlock-keyhole"></div>
+                <div class="padlock-heart">🔒</div>
+              </div>
+            </div>
+
+            <div class="capsule-locked-info">
+              <span class="vault-status-tag">STATUS: LOCKED & SEALED</span>
+              <h3 class="vault-title">The D2 Future Vault</h3>
+              <p class="vault-desc">
+                Contains 4 sacred promises written by Dhanushree for our wedding, our future home, and our forever.
+              </p>
+              <button class="netflix-btn primary-btn unlock-vault-btn" id="unlock-vault-btn">
+                <span class="key-icon">🗝️</span>
+                <span>TOUCH TO UNSEAL OUR PROMISES</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Unlocked Content (Reveals 4 Golden Promise Scrolls) -->
+          <div class="capsule-unlocked-content" id="capsule-unlocked-content" style="display: none;">
+
+            <div class="capsule-unlocked-header">
+              <div class="unsealed-badge">✨ TIME CAPSULE UNLOCKED ✨</div>
+              <h3 class="unlocked-title">My 4 Sacred Promises To You, Pappuu</h3>
+              <p class="unlocked-subtitle">To be kept today, on our wedding day, and till my last breath.</p>
+            </div>
+
+            <div class="promises-grid">
+
+              <!-- Promise 1 -->
+              <div class="cinematic-card promise-card">
+                <div class="promise-num">PROMISE I</div>
+                <div class="promise-icon">🛵</div>
+                <h4 class="promise-title">To Forever Ride Beside You</h4>
+                <p class="promise-text">
+                  No matter how rough the road gets, through storms or sunshine, I promise to hold on tight behind your
+                  bike, leaning on your shoulders, trusting wherever you lead us.
+                </p>
+                <div class="promise-footer">"You are my safest driver, my favorite journey."</div>
+              </div>
+
+              <!-- Promise 2 -->
+              <div class="cinematic-card promise-card">
+                <div class="promise-num">PROMISE II</div>
+                <div class="promise-icon">🫂</div>
+                <h4 class="promise-title">We Fight, We Fix, We Never Leave</h4>
+                <p class="promise-text">
+                  When misunderstandings happen, I promise to choose our love above any ego. We will talk, we will hug,
+                  and we will fix it before we sleep. Always us against the problem.
+                </p>
+                <div class="promise-footer">"A million fights, but only one love."</div>
+              </div>
+
+              <!-- Promise 3 -->
+              <div class="cinematic-card promise-card">
+                <div class="promise-num">PROMISE III</div>
+                <div class="promise-icon">🛕</div>
+                <h4 class="promise-title">From Thiruthani To The Mandapam</h4>
+                <p class="promise-text">
+                  From climbing those sacred steps on October 31, 2023 to holding your hands around the sacred fire at
+                  our wedding mandapam — I promise to stand by you in prayer and life.
+                </p>
+                <div class="promise-footer">"Our Murugan's blessings will seal our forever."</div>
+              </div>
+
+              <!-- Promise 4 -->
+              <div class="cinematic-card promise-card">
+                <div class="promise-num">PROMISE IV</div>
+                <div class="promise-icon">♾️</div>
+                <h4 class="promise-title">Growing Old With You</h4>
+                <p class="promise-text">
+                  Grey hairs, wrinkled hands, silly jokes on park benches, sharing hot fried rice at 80 years old — I
+                  promise to look at you with the exact same Xerox-shop butterflies every day.
+                </p>
+                <div class="promise-footer">"Until 2030, 2080, and every lifetime after."</div>
+              </div>
+
+            </div>
+
+            <!-- Dinesh's Interactive Vow Stamping -->
+            <div class="vow-stamp-card">
+              <h4 class="vow-stamp-prompt">Dinesh, do you accept these promises for our future?</h4>
+              <button class="surprise-btn vow-accept-btn" id="vow-accept-btn">
+                <span>❤️ I ACCEPT & PROMISE TOO ❤️</span>
+              </button>
+              <div class="vow-sealed-notice" id="vow-sealed-notice" style="display:none;">
+                <span class="seal-icon">💍</span>
+                <span>SEALED IN BOTH OUR HEARTS • OCTOBER 23 & FOREVER</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================
+         SECTION 5: OUR NEXT CHAPTER
+         - Live Countdown to October 23, 2026
+         - Ticking Days Together since October 23, 2023
+         - Final Message:
+           "3 years.
+           Thousands of memories.
+           Countless fights.
+           One love.
+           And I would still choose you.
+           Happy Anniversary, Dinesh.
+           23.10.2026 ♾️"
+         - Final surprise button & celebratory animation
+         ================================================================= -->
+    <section class="story-section section-padding next-chapter-section" id="next-chapter">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-episode">EPISODE 05</span>
+          <h2 class="section-title">Our Next Chapter</h2>
+          <div class="title-underline"></div>
+          <p class="section-description">
+            Three years of magic behind us. An eternity of adventures ahead.
+          </p>
+        </div>
+
+        <!-- DUAL TIMERS GRID: Countdown to Oct 23, 2026 & Days In Love -->
+        <div class="timers-grid">
+
+          <!-- Card 1: Romantic Countdown to October 23, 2026 -->
+          <div class="timer-card countdown-card">
+            <div class="timer-badge">
+              <span class="live-blink"></span>
+              <span>ANNIVERSARY COUNTDOWN</span>
+            </div>
+            <h3 class="timer-title">Countdown to October 23, 2026</h3>
+            <p class="timer-subtitle">Counting down every second to our 3-year anniversary milestone</p>
+
+            <div class="countdown-display" id="anniversary-countdown">
+              <div class="time-block">
+                <div class="time-box"><span id="cd-days">00</span></div>
+                <span class="time-label">DAYS</span>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-box"><span id="cd-hours">00</span></div>
+                <span class="time-label">HOURS</span>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-box"><span id="cd-minutes">00</span></div>
+                <span class="time-label">MINUTES</span>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-box"><span id="cd-seconds">00</span></div>
+                <span class="time-label">SECONDS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Days Together Since Dinesh Proposed (Oct 23, 2023) -->
+          <div class="timer-card elapsed-card">
+            <div class="timer-badge gold-badge">
+              <span>OUR JOURNEY SO FAR</span>
+            </div>
+            <h3 class="timer-title">Days In Love Together</h3>
+            <p class="timer-subtitle">Every precious heartbeat since Dinesh proposed on October 23, 2023</p>
+
+            <div class="countdown-display" id="elapsed-counter">
+              <div class="time-block">
+                <div class="time-box gold-box"><span id="el-days">000</span></div>
+                <span class="time-label">DAYS</span>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-box gold-box"><span id="el-hours">00</span></div>
+                <span class="time-label">HOURS</span>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-box gold-box"><span id="el-minutes">00</span></div>
+                <span class="time-label">MINUTES</span>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-box gold-box"><span id="el-seconds">00</span></div>
+                <span class="time-label">SECONDS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- =============================================================
+             THE GRAND FINAL MESSAGE (Exact Words Requested by User)
+             ============================================================= -->
+        <div class="final-statement-card">
+          <div class="final-card-glow"></div>
+          <div class="infinity-badge">♾️ 23:10 ♾️</div>
+
+          <div class="final-message-lines">
+            <p class="final-line line-1">3 years.</p>
+            <p class="final-line line-2">Thousands of memories.</p>
+            <p class="final-line line-3">Countless fights.</p>
+            <p class="final-line line-4">One love.</p>
+            <p class="final-line line-5 highlight-quote">And I would still choose you.</p>
+            <h3 class="final-line line-6 anniversary-wish">Happy Anniversary, Dinesh.</h3>
+            <p class="final-line line-7 date-infinity">23.10.2026 ♾️</p>
+          </div>
+
+          <!-- FINAL SURPRISE BUTTON -->
+          <div class="final-action-wrap">
+            <button class="surprise-btn" id="surprise-trigger-btn">
+              <span class="sparkle-icon">✨</span>
+              <span>TOUCH FOR OUR FINAL SURPRISE</span>
+              <span class="sparkle-icon">✨</span>
+              <div class="btn-ripple"></div>
+            </button>
+            <p class="surprise-hint">A little extra magic just for you ❤️</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-logo">23:10 — OUR STORY</div>
+        <p class="footer-dedication">Crafted with eternal love for Dinesh on our 3rd Anniversary</p>
+        <p class="footer-date">October 23, 2023 ➔ October 23, 2026 ➔ Always & Forever</p>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <!-- =================================================================
+       MODALS & OVERLAYS
+       1. Lightbox Modal for Photo Gallery
+       2. Final Grand Surprise Modal (Fireworks, Lanterns, Sweet Message)
+       ================================================================= -->
+
+  <!-- Lightbox Modal -->
+  <div class="modal-overlay" id="lightbox-modal">
+    <div class="lightbox-container">
+      <button class="modal-close-btn" id="lightbox-close">&times;</button>
+      <div class="lightbox-media-wrapper" id="lightbox-media-box">
+        <img src="" alt="Enlarged Memory" id="lightbox-img" class="lightbox-img" />
+        <div id="lightbox-custom-art" class="lightbox-art-view"></div>
+      </div>
+      <div class="lightbox-footer">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <button class="heart-react-btn" id="lightbox-heart-btn" title="Leave a heart">
+          <span>❤️</span> <span id="heart-count">Forever</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Surprise Celebration Modal -->
+  <div class="modal-overlay" id="surprise-modal">
+    <div class="surprise-container">
+      <button class="modal-close-btn" id="surprise-close">&times;</button>
+
+      <div class="surprise-badge">HAPPY 3RD ANNIVERSARY DINESH!</div>
+
+      <div class="rings-animation">
+        <span class="ring-icon">💍</span>
+        <span class="sparkle-stars">✨</span>
+        <span class="ring-icon">❤️</span>
+      </div>
+
+      <h2 class="surprise-title">To My Dinesh, My Forever & Always</h2>
+
+      <div class="surprise-body">
+        <p>
+          No matter how many train stations we pass, how many miles we ride together on the Splendor, or how many years
+          slip into memories...
+        </p>
+        <p class="surprise-highlight">
+          "In every lifetime, in every universe, my heart will always look for you at that Xerox shop."
+        </p>
+        <p>
+          Thank you for choosing me every single day. Here is to a lifetime of late-night fried rice, laughing till our
+          eyes water, and growing old holding hands.
+        </p>
+      </div>
+
+      <div class="surprise-seal">
+        <span>Happy 3 Years, My Love!</span>
+        <span class="anniversary-date-stamp">23.10.2026 ♾️</span>
+      </div>
+
+      <button class="netflix-btn primary-btn close-surprise-btn" id="surprise-done-btn">
+        <span>I LOVE YOU SO MUCH ❤️</span>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+
+</html>
