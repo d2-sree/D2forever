@@ -1964,22 +1964,50 @@ body {
   transform: scale(1.03);
 }
 
-/* Hover Controls on Uploaded Frame */
+/* Controls on Film Frame */
 .film-frame-controls {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   z-index: 5;
   display: flex;
   gap: 6px;
+  transition: all 0.25s ease;
+}
+
+/* View & Remove buttons — only appear on hover */
+.film-frame-controls .btn-view,
+.film-frame-controls .btn-remove {
   opacity: 0;
   transform: translateY(-4px);
   transition: all 0.25s ease;
 }
 
-.film-window:hover .film-frame-controls {
+.film-window:hover .film-frame-controls .btn-view,
+.film-window:hover .film-frame-controls .btn-remove {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Replace (🔄) button — ALWAYS visible on frames with a photo */
+.film-frame-unit.has-photo .film-frame-controls .btn-change {
+  opacity: 1;
+  transform: translateY(0);
+  background: rgba(245, 158, 11, 0.9);
+  border-color: #f59e0b;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  animation: replaceGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes replaceGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.45); }
+  50%       { box-shadow: 0 0 18px rgba(245, 158, 11, 0.85); }
+}
+
+/* On empty frames — change button is hidden (clicking the frame itself opens picker) */
+.film-frame-unit:not(.has-photo) .film-frame-controls .btn-change {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .frame-ctrl-btn {

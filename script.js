@@ -24,6 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Play subtle romantic entry chime
     playRomanticChime();
 
+    // AUTO-PLAY the love song immediately on first user gesture
+    bgAudio.volume = 0.85;
+    bgAudio.play()
+      .then(() => {
+        setMusicPlayingState(true);
+      })
+      .catch((err) => {
+        console.warn('Autoplay blocked, user can manually play:', err);
+      });
+
     // Trigger heart burst particles from the button
     createParticleBurst(window.innerWidth / 2, window.innerHeight / 2);
 
@@ -83,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isPlaying = playing;
     if (playing) {
       audioWidget.classList.add('audio-playing');
-      audioStatusText.textContent = 'Playing Music';
+      audioStatusText.textContent = 'One Love ♥';
     } else {
       audioWidget.classList.remove('audio-playing');
       audioStatusText.textContent = 'Play Our Song';
@@ -365,12 +375,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (container) container.innerHTML = '';
   }
 
+  // ── Default photos for film frames (preloaded from assets/photos) ────────
+  const filmDefaultPhotos = {
+    '1': 'assets/photos/film1.jpg',
+    '2': 'assets/photos/film2.jpg',
+    '3': 'assets/photos/film3.jpg',
+    '4': 'assets/photos/film4.jpg',
+  };
+
   // ── Restore 35mm Film Frames & Captions from localStorage ───────────────
   filmFrameUnits.forEach(unit => {
     const idx = unit.getAttribute('data-film-index');
     const savedImg = localStorage.getItem(`filmstrip-frame-${idx}`);
     if (savedImg) {
       setFilmFramePhoto(unit, savedImg);
+    } else if (filmDefaultPhotos[idx]) {
+      // Show default preloaded photo (not saved to localStorage so user can override)
+      setFilmFramePhoto(unit, filmDefaultPhotos[idx]);
     }
     const captionEl = unit.querySelector('.film-caption-input');
     const savedCaption = localStorage.getItem(`filmstrip-caption-${idx}`);
@@ -394,9 +415,19 @@ document.addEventListener('DOMContentLoaded', () => {
       windowEl.addEventListener('click', (e) => {
         if (e.target.closest('.frame-ctrl-btn')) return; // handled by buttons
         const imgData = localStorage.getItem(`filmstrip-frame-${idx}`);
-        if (unit.classList.contains('has-photo') && imgData) {
-          const cap = captionEl ? captionEl.textContent : '35mm Memory';
-          openHeartLightbox(imgData, cap);
+        if (unit.classList.contains('has-photo')) {
+          // If a saved photo exists, open lightbox; otherwise open picker to replace default
+          if (imgData) {
+            const cap = captionEl ? captionEl.textContent : '35mm Memory';
+            openHeartLightbox(imgData, cap);
+          } else {
+            // Default photo — open picker to let user replace it
+            activeFilmSlot = idx;
+            if (filmFileInput) {
+              filmFileInput.value = '';
+              filmFileInput.click();
+            }
+          }
         } else {
           activeFilmSlot = idx;
           if (filmFileInput) {
@@ -761,10 +792,13 @@ document.addEventListener('DOMContentLoaded', () => {
     tile.addEventListener('click', () => {
       const slot = tile.getAttribute('data-slot');
       const savedSrc = localStorage.getItem(`heart-tile-${slot}`);
+      // Also check for hardcoded img in HTML (photos embedded directly)
+      const hardcodedImg = tile.querySelector('img');
+      const imgSrc = savedSrc || (hardcodedImg ? hardcodedImg.src : null);
 
-      if (tile.classList.contains('has-photo') && savedSrc) {
+      if (tile.classList.contains('has-photo') && imgSrc) {
         // Already has photo → open lightbox
-        openHeartLightbox(savedSrc);
+        openHeartLightbox(imgSrc);
       } else {
         // Empty → open file picker
         activeTileSlot = slot;
@@ -779,14 +813,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const file = heartFileInput.files[0];
     if (!file || activeTileSlot === null) return;
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const dataURL = e.target.result;
+    // Compress before saving to avoid localStorage QuotaExceededError
+    compressImage(file, 900, 0.85, (dataURL) => {
       const tile = document.querySelector(`.heart-tile[data-slot="${activeTileSlot}"]`);
       if (tile) {
         const wasEmpty = !tile.classList.contains('has-photo');
         setTilePhoto(tile, dataURL);
-        localStorage.setItem(`heart-tile-${activeTileSlot}`, dataURL);
+        try {
+          localStorage.setItem(`heart-tile-${activeTileSlot}`, dataURL);
+        } catch (err) {
+          console.warn('localStorage quota exceeded — trying lower quality', err);
+          // Retry at lower quality if quota is exceeded
+          compressImage(file, 600, 0.65, (smallerUrl) => {
+            try {
+              localStorage.setItem(`heart-tile-${activeTileSlot}`, smallerUrl);
+            } catch (e2) {
+              showFilmToast('⚠️ Image too large to save. Try a smaller photo.');
+            }
+          });
+        }
         if (wasEmpty) {
           filledCount++;
           updateFilledCount();
@@ -794,10 +839,10 @@ document.addEventListener('DOMContentLoaded', () => {
           tile.classList.add('just-uploaded');
           setTimeout(() => tile.classList.remove('just-uploaded'), 700);
         }
+        showFilmToast('💝 Memory saved to your heart collage! ❤️');
       }
       activeTileSlot = null;
-    };
-    reader.readAsDataURL(file);
+    });
   });
 
   // ── Helper: apply photo to tile ────────────────────────────────────────
